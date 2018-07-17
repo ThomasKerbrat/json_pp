@@ -18,12 +18,12 @@ class MultiLineineVisitor {
     }
 
     visit(node) {
-        if (node instanceof ArrayNode) { this.visitArray(node); }
-        if (node instanceof KeyValueNode) { this.visitKeyValue(node); }
-        if (node instanceof LiteralNode) { this.visitLiteral(node); }
-        if (node instanceof NumberNode) { this.visitNumber(node); }
-        if (node instanceof ObjectNode) { this.visitObject(node); }
-        if (node instanceof StringNode) { this.visitString(node); }
+        if (node instanceof ArrayNode) { return this.visitArray(node); }
+        if (node instanceof KeyValueNode) { return this.visitKeyValue(node); }
+        if (node instanceof LiteralNode) { return this.visitLiteral(node); }
+        if (node instanceof NumberNode) { return this.visitNumber(node); }
+        if (node instanceof ObjectNode) { return this.visitObject(node); }
+        if (node instanceof StringNode) { return this.visitString(node); }
     }
 
     visitObject(object) {
