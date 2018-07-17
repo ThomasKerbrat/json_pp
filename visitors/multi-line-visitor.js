@@ -37,9 +37,9 @@ class MultiLineineVisitor {
             this.pushNewLine();
             this.tabOffset++;
 
-            let item;
+            const sortedKeys = object.items.map(item => item.key).sort();
             for (let i = 0; i < object.items.length; i++) {
-                item = object.items[i];
+                const item = object.items.find(item => item.key === sortedKeys[i]);
                 item.accept(this);
                 if (i < object.items.length - 1) {
                     this.stringBuilder.push(',');

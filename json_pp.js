@@ -19,6 +19,8 @@ const {
 // const json = JSON.stringify(objectContent, null, 2);
 // console.log(json);
 
+const object = { "name": "Thomas Kerbrat", "age": 22.5, "emptyobj": {}, "info": ["toto", 123, [null, true, false, {}]] };
+
 const objectNode = new ObjectNode([
     new KeyValueNode('name', new StringNode('Thomas Kerbrat')),
     new KeyValueNode('age', new NumberNode(22.5)),
