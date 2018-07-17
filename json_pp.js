@@ -2,7 +2,6 @@
 const fs = require('fs');
 const os = require('os');
 
-const { InlineineVisitor } = require('./visitors/inline-visitor');
 const { MultiLineineVisitor } = require('./visitors/multi-line-visitor');
 const { Parser } = require('./parsing/parser.js');
 
