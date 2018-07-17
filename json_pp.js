@@ -2,7 +2,8 @@
 const fs = require('fs');
 const os = require('os');
 
-const { InlineVisitor } = require('./visitors/inline-visitor');
+const { InlineineVisitor } = require('./visitors/inline-visitor');
+const { MultiLineineVisitor } = require('./visitors/multi-line-visitor');
 const {
     ArrayNode,
     KeyValueNode,
@@ -21,6 +22,7 @@ const {
 const objectNode = new ObjectNode([
     new KeyValueNode('name', new StringNode('Thomas Kerbrat')),
     new KeyValueNode('age', new NumberNode(22.5)),
+    new KeyValueNode('emptyobj', new ObjectNode([])),
     new KeyValueNode('info', new ArrayNode([
         new StringNode('toto'),
         new NumberNode(123),
@@ -28,11 +30,21 @@ const objectNode = new ObjectNode([
             new LiteralNode('null'),
             new LiteralNode('true'),
             new LiteralNode('false'),
+            new ObjectNode([]),
         ])
     ]))
 ]);
 
-const stringBuilder = [];
-const visitor = new InlineVisitor(stringBuilder, os.EOL);
-visitor.visit(objectNode);
-console.log(stringBuilder.join(''));
+{
+    const stringBuilder = [];
+    const visitor = new InlineineVisitor(stringBuilder);
+    visitor.visit(objectNode);
+    console.log(stringBuilder.join(''));
+}
+
+{
+    const stringBuilder = [];
+    const visitor = new MultiLineineVisitor(stringBuilder, os.EOL);
+    visitor.visit(objectNode);
+    console.log(stringBuilder.join(''));
+}
