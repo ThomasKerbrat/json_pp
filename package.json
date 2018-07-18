@@ -1,0 +1,27 @@
+{
+  "name": "json_ppc",
+  "version": "0.1.0",
+  "description": "A command line tool to display JSON files with colored values.",
+  "main": "src/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "json_ppc": "./cli.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThomasKerbrat/json_ppc.git"
+  },
+  "keywords": [
+    "json",
+    "pretty-print",
+    "nodejs"
+  ],
+  "author": "Thomas Kerbrat",
+  "license": "GPL-3.0-only",
+  "bugs": {
+    "url": "https://github.com/ThomasKerbrat/json_ppc/issues"
+  },
+  "homepage": "https://github.com/ThomasKerbrat/json_ppc#readme"
+}
