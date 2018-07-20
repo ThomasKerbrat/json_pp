@@ -10,11 +10,12 @@ const {
 const { Colors } = require('../utils/colors.js');
 
 class MultiLineineVisitor {
-    constructor(stringBuilder, EOL) {
+    constructor(stringBuilder, EOL, colors) {
         this.stringBuilder = stringBuilder;
         this.EOL = EOL;
         this.tabOffset = 0;
         this.insertTabs = true;
+        this.colors = colors;
     }
 
     visit(node) {
@@ -98,7 +99,7 @@ class MultiLineineVisitor {
             this.stringBuilder.push(this.getTabs());
         }
 
-        this.stringBuilder.push(Colors.apply(number.value, 'yellow'));
+        this.stringBuilder.push(this.colors ? Colors.apply(number.value, 'yellow') : number.value);
     }
 
     visitString(string) {
@@ -106,11 +107,17 @@ class MultiLineineVisitor {
             this.stringBuilder.push(this.getTabs());
         }
 
-        this.stringBuilder.push(Colors.open('green'));
+        if (this.colors) {
+            this.stringBuilder.push(Colors.open('green'));
+        }
+
         this.stringBuilder.push('"');
         this.stringBuilder.push(string.value);
         this.stringBuilder.push('"');
-        this.stringBuilder.push(Colors.close('green'));
+
+        if (this.colors) {
+            this.stringBuilder.push(Colors.close('green'));
+        }
     }
 
     visitLiteral(literal) {
@@ -118,11 +125,13 @@ class MultiLineineVisitor {
             this.stringBuilder.push(this.getTabs());
         }
 
-        const value = literal.value === 'null'
-            ? Colors.apply(literal.value, 'bold')
-            : literal.value === 'true' || literal.value === 'false'
-                ? Colors.apply(literal.value, 'yellow')
-                : literal.value;
+        const value = !this.colors
+            ? literal.value
+            : literal.value === 'null'
+                ? Colors.apply(literal.value, 'bold')
+                : literal.value === 'true' || literal.value === 'false'
+                    ? Colors.apply(literal.value, 'yellow')
+                    : literal.value;
         this.stringBuilder.push(value);
     }
 
