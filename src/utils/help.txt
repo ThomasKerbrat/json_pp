@@ -1,0 +1,11 @@
+json_ppc  Copyright (C) 2018  Thomas Kerbrat
+This program comes with ABSOLUTELY NO WARRANTY.
+This is free software, and you are welcome to redistribute it
+under certain conditions.
+
+Usage : json_ppc [OPTION] FILE
+
+Options :
+ -i, --inline    display the file without new lines and indentation
+ -n, --no-colors don't include ANSI escape codes in the output string
+ -h, --help      show this help
