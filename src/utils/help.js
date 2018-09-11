@@ -1,8 +1,10 @@
 
 const fs = require('fs');
+const path = require('path');
 
 function help() {
-    const helpText = fs.readFileSync('src/utils/help.txt', 'utf-8');
+    const helpFilePath = path.join(__dirname, 'help.txt');
+    const helpText = fs.readFileSync(helpFilePath, 'utf-8');
     console.log(helpText);
 }
 

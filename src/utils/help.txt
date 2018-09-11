@@ -3,7 +3,7 @@ This program comes with ABSOLUTELY NO WARRANTY.
 This is free software, and you are welcome to redistribute it
 under certain conditions.
 
-Usage : json_ppc [OPTION] FILE
+Usage: json_ppc [OPTIONS] FILE
 
 Options :
  -i, --inline    display the file without new lines and indentation
